@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers/root.reducer'
 
-const store = createStore(reducers)
+
+const composeEnhacer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(
+  reducers,
+  composeEnhacer(applyMiddleware())
+)
 
 ReactDOM.render(
   <React.StrictMode>
