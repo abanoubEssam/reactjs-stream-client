@@ -55,7 +55,6 @@ class GoogleAuth extends Component {
     }
 
     render() {
-        console.log("STATE", this.props)
         return (
             <div>
                 {this.renderAuthButton()}
@@ -65,8 +64,6 @@ class GoogleAuth extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log("mapStateToProps -> state", state)
-
     return {
         isSignedIn: state.auth.isSignedIn,
         userId: state.auth.userId
