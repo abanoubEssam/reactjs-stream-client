@@ -5,13 +5,13 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers/root.reducer'
-
+import reduxThunk from 'redux-thunk'
 
 const composeEnhacer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = createStore(
   reducers,
-  composeEnhacer(applyMiddleware())
+  composeEnhacer(applyMiddleware(reduxThunk))
 )
 
 ReactDOM.render(
